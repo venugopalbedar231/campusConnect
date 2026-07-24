@@ -11,6 +11,7 @@ appRouter.get("/notices", Controller.getNotices)
 appRouter.get("/events", Controller.getEvents)
 appRouter.post("/events", Controller.createEvent)
 appRouter.get("/events/:id", Controller.getEventById)
+appRouter.get("/notices/:id", Controller.getNoticeById)
 appRouter.post("/users/register", Controller.register)
 
 export default appRouter;
