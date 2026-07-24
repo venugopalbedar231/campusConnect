@@ -127,7 +127,7 @@ npm install
 Create `.env`
 
 ```
-VITE_BACKEND_URL=http://localhost:3000
+VITE_BACKEND_URL=https://termiconnect.onrender.com/api
 ```
 
 Run frontend
@@ -165,7 +165,6 @@ npm run dev
 - Notice Details
 - Event Feed
 - Event Details
-- Search Results
 
 ---
 

@@ -11,7 +11,7 @@ function Notices() {
     async function fetchNotices() {
         if(loading || !hasMore) return;
         setLoading(true);
-        const response = await fetch(`http://localhost:3000/api/notices?page=${page}&limit=2`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/notices?page=${page}&limit=2`);
         const data = await response.json();
         if(data.notices.length === 0){
             setHasMore(false);

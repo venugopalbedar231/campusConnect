@@ -10,7 +10,7 @@ function Events() {
     async function fetchEvents() {
         if(loading || !hasMore) return;
         setLoading(true);
-        const response = await fetch(`http://localhost:3000/api/events?page=${page}&limit=2`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/events?page=${page}&limit=2`);
         const data = await response.json();
         if(data.events.length === 0){
             setHasMore(false);

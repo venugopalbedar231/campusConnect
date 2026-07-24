@@ -1,9 +1,9 @@
 import { ArrowRight, Loader, Lock, Mail, User } from 'lucide-react';
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
-
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -12,7 +12,7 @@ function Register() {
         const email = e.target.email.value;
 
         try {
-            const response = await fetch("http://localhost:3000/api/users/register", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -31,6 +31,8 @@ function Register() {
             navigate("/");
         } catch (err) {
             // throw new Error(err.response?.data?.message || "Registration failed. Try again.");
+            console.error(err);
+            alert(err.message);
         } finally {
             // setLoading(false);
         }
@@ -51,21 +53,18 @@ function Register() {
                     )} */}
 
                     <form onSubmit={handleSubmit} className="space-y-5">
-
-                        {/* Username */}
                         <div>
                             <label>
                                 Name
                             </label>
                             <div className="relative"><input
-                                    name="username"
+                                    name="name"
                                     type="text"
                                     placeholder="johndoe"
                                     required
                                     className="w-full" />
                             </div>
                         </div>
-                        {/* RollNo */}
                         <div>
                             <label>
                                 Roll No
@@ -79,8 +78,6 @@ function Register() {
                                 />
                             </div>
                         </div>
-
-                        {/* Email */}
                         <div>
                             <label >
                                 Email
@@ -95,7 +92,6 @@ function Register() {
                             </div>
                         </div>
 
-                        {/* Submit */}
                         <button
                             type="submit"
                             className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-semibold py-2.5 rounded-lg transition mt-2"

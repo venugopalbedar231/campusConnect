@@ -9,15 +9,12 @@ const Navbar = () => {
     <nav className="bg-white shadow-md border-b">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer">
             <GraduationCap size={32} className="text-blue-600" />
             <Link to="/" className="text-2xl font-bold text-gray-800">
               Campus Connect
             </Link>
           </div>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
             <Link to="/events" className="text-gray-700 hover:text-blue-600 font-medium transition">
               Events
@@ -32,14 +29,11 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Button */}
-          <div className="hidden md:block">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
+          {/* <div className="hidden md:block"> */}
+            <Link to="/register" className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
               Register
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
+            </Link>
+          {/* </div> */}
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -47,8 +41,6 @@ const Navbar = () => {
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col gap-4">

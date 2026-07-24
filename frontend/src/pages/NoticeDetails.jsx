@@ -7,7 +7,7 @@ function EventDetails() {
     const [notice, setNotice] = useState(null);
     useEffect(() =>{
         async function fetchNotice(){
-            const response = await fetch(`http://localhost:3000/api/notices/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/notices/${id}`);
             const data = await response.json();
             setNotice(data);
         }

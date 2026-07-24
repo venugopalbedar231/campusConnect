@@ -6,7 +6,7 @@ function Users() {
 
     useEffect(() => {
         async function fetchUsers() {
-            const response = await fetch("http://localhost:3000/api/users");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users`);
             const data = await response.json();
             setUsers(data.user);
         }
@@ -15,7 +15,7 @@ function Users() {
 
     return (
         <div>
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
